@@ -1,6 +1,7 @@
 %{
   import java.io.*;
-%}
+ %}
+ %token<sval> TAGNAME
 %%
 %%
 public static void main(String args[]) throws IOException {

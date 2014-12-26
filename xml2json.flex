@@ -22,8 +22,12 @@ EQUALSIGN = "="
 QUOTED = "\"" [.]+ "\""
 COMMENT = "<!--" [.]+ "-->"
 
+/* riconosciamo tutti i possibili attributi */
+ID = ^[i][d][=].+[a]+$
+
 %%
+
 {TAGBEGIN} {return Parser.TAGBEGIN;}
 {TAGNAME} { yyparser.yylval = new ParserVal(yytext());
          return Parser.TAGNAME; }
-
+{
