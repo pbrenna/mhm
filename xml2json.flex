@@ -59,3 +59,21 @@ SECTION = "section"
 {TITLE}   {return Parser.TITLE}
 {CAPTION} {return Parser.CAPTION}
 {PATH} {return Parser.PATH} 
+
+{BOOK} {return Parser.BOOK}
+{PART} {return Parser.PART}
+{ITEM}{return Parser.ITEM}
+{CHAPTER}{return Parser.CHAPTER}
+{ACTION}{return Parser.ACTION}
+{FIGURE}{return Parser.FIGURE}
+{TABLE}{return Parser.TABLE}
+{ROW}{return Parser.ROW}
+{CELL}{return Parser.CELL}
+{AUTHORNOTES}{return Parser.AUTHORNOTES}
+{NOTE}{return Parser.NOTE}
+{DEDICATION}{return Parser.DEDICATION}
+{PREFACE}{return Parser.PREFACE}
+{TOC}{return Parser.TOC}
+{LOF}{return Parser.LOF}
+{LOT}{return Parser.LOT}
+{SECTION}{return Parser.SECTION}
