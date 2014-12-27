@@ -23,11 +23,39 @@ QUOTED = "\"" [.]+ "\""
 COMMENT = "<!--" [.]+ "-->"
 
 /* riconosciamo tutti i possibili attributi */
-ID = ^[i][d][=].+[a]+$
+ID = "id"
+EDITION = "edition"
+TITLE = "title"
+CAPTION = "caption"
+PATH = "path"
+
+/* Secondo approccio che invece di utizzzare un generico TAGNAME definisce un token per ogni tag*/
+BOOK = "book"
+PART = "part"
+ITEM = "item"
+CHAPTER = "chapter"
+ACTION = "action"
+FIGURE = "figure"
+TABLE = "table"
+ROW = "row"
+CELL = "cell"
+AUTHORNOTES = "authornotes"
+NOTE = "note"
+DEDICATION = "dedication"
+PREFACE = "preface"
+TOC = "toc"
+LOF = "lof"
+LOT = "lot"
+SECTION = "section"
 
 %%
 
 {TAGBEGIN} {return Parser.TAGBEGIN;}
 {TAGNAME} { yyparser.yylval = new ParserVal(yytext());
          return Parser.TAGNAME; }
-{
+
+{ID} {return Parser.ID}
+{EDITION} {return Parser.EDITION}
+{TITLE}   {return Parser.TITLE}
+{CAPTION} {return Parser.CAPTION}
+{PATH} {return Parser.PATH} 
