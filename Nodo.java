@@ -16,28 +16,36 @@ public class Nodo{
 		JSON = tabg + "{\n";
 		JSON = JSON + tab + "\"tag\": \"" + this.nome + "\",\n";
 		for(String key : this.attributi.keySet()){
-			JSON = JSON + tab + "\"@" + key + "\": " + this.attributi.get(key) + "\",\n";
+			JSON = JSON + tab + "\"@" + key + "\": \"" + this.attributi.get(key) + "\",\n";
 		}
 		if(this.figli.size() != 0){
 			JSON = JSON + tab + "\"content\": [\n";
+			boolean primo = true;
 			for(Object n: this.figli){
 				boolean isNode = false;
 				String stringa = "";
+				if(!primo){
+					JSON = JSON +",\n";
+				}
+				primo = false;
 				try{
 					stringa = (String)n;
 				}catch(Exception e){
 					isNode = true;
 				}
 				if(isNode){
-					JSON = JSON + ((Nodo)n).toJSON(indentazione + 1) + "\n";
+					JSON = JSON + ((Nodo)n).toJSON(indentazione + 2);
 				}
 				else{
-					JSON = JSON + tab + "\t \"" + stringa + "\"\n";
+					JSON = JSON + tab + "\t\"" + stringa + "\"";
 				}
 			}
-			JSON = JSON + tab + "]\n";
+			JSON = JSON + "\n" + tab + "]\n";
 		}
 		JSON = JSON + tabg + "}";
+		if(indentazione == 0){
+			JSON = JSON + "\n";
+		}
 		return JSON;
 	}
 	private static String retTab(int n){
@@ -47,7 +55,7 @@ public class Nodo{
 		return ret;
 	}
 	
-	public static void mainProva(String args[]){
+	public static void main(String args[]){
 		Nodo n = new Nodo();
 		Nodo g = new Nodo();
 		n.nome = "book";
