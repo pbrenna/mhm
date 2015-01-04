@@ -14,10 +14,9 @@
  %token<sval> PCDATA
 %%
 
-
 input: xml_declaration dtd_declaration generic_element;
 
-attribute: IDENT EQUALSIGN QUOTED;
+attribute: IDENT EQUALSIGN QUOTED {System.out.println($3);};
 attr_list:  | attribute attr_list;
 xml_declaration: 
 	DOCTYPE attr_list DOCTYPECLOSE;
@@ -25,8 +24,9 @@ generic_element: closed_element | element;
 element: TAGBEGIN IDENT attr_list TAGEND child_list TAGCLOSE IDENT TAGEND;
 closed_element: TAGBEGIN IDENT attr_list TAGENDANDCLOSE;
 
-child_list: | generic_element child_list | PCDATA child_list; 
+child_list: | generic_element child_list | pcdata2 child_list; 
 dtd_declaration: ;
+pcdata2 : PCDATA | PCDATA pcdata2;
 
 %%
 public static void main(String args[]) throws IOException {
@@ -35,7 +35,9 @@ public static void main(String args[]) throws IOException {
 	if ( args.length > 0 ) {
 		// parse a file
 		FileReader r = new FileReader(args[0]);
-		System.out.println((char) r.read());
+		//System.out.println((char) r.read());
+		System.out.println(Parser.DOCTYPE);
+		System.out.println(Parser.PCDATA);
 		yyparser = new Parser(r);
 		yyparser.yydebug= true;
 		yyparser.yyparse();
