@@ -12,24 +12,28 @@
 %}
 /* ??????????????? */
 
-TAGNAME = [a-z]+
+IDENT = [a-z]+
 TAGBEGIN = "<"
+DOCTYPE = TAGBEGIN "?xml"
+DOCTYPECLOSE = "?" TAGEND
 TAGENDANDCLOSE = "/>"
 TAGEND = ">"
+TAGCLOSE = "</"
 /*EMPTYELEMENT = TAGBEGIN TAGNAME  TAGENDANDCLOSE*/
 /*TAGCLOSE = TAGBEGIN "/" TAGNAME TAGEND*/
 EQUALSIGN = "="
 QUOTED = "\"" [.]+ "\""
 COMMENT = "<!--" [.]+ "-->"
-
-/* riconosciamo tutti i possibili attributi */
+PCDATA = [^TAGBEGIN]+
+/* riconosciamo tutti i possibili attributi 
 ID = "id"
 EDITION = "edition"
 TITLE = "title"
 CAPTION = "caption"
 PATH = "path"
+WHITESPACE = " " | "\n" | "\r\n" | "\t";
 
-/* Secondo approccio che invece di utizzzare un generico TAGNAME definisce un token per ogni tag*/
+/* Secondo approccio che invece di utizzzare un generico TAGNAME definisce un token per ogni tag
 BOOK = "book"
 PART = "part"
 ITEM = "item"
@@ -46,34 +50,19 @@ PREFACE = "preface"
 TOC = "toc"
 LOF = "lof"
 LOT = "lot"
-SECTION = "section"
+SECTION = "section"*/*/
 
 %%
 
-{TAGBEGIN} {return Parser.TAGBEGIN;}
-{TAGNAME} { yyparser.yylval = new ParserVal(yytext());
-         return Parser.TAGNAME; }
+{TAGBEGIN} {System.out.println("sdifpdsifds"); return Parser.TAGBEGIN;}
 
-{ID} {return Parser.ID}
-{EDITION} {return Parser.EDITION}
-{TITLE}   {return Parser.TITLE}
-{CAPTION} {return Parser.CAPTION}
-{PATH} {return Parser.PATH} 
-
-{BOOK} {return Parser.BOOK}
-{PART} {return Parser.PART}
-{ITEM}{return Parser.ITEM}
-{CHAPTER}{return Parser.CHAPTER}
-{ACTION}{return Parser.ACTION}
-{FIGURE}{return Parser.FIGURE}
-{TABLE}{return Parser.TABLE}
-{ROW}{return Parser.ROW}
-{CELL}{return Parser.CELL}
-{AUTHORNOTES}{return Parser.AUTHORNOTES}
-{NOTE}{return Parser.NOTE}
-{DEDICATION}{return Parser.DEDICATION}
-{PREFACE}{return Parser.PREFACE}
-{TOC}{return Parser.TOC}
-{LOF}{return Parser.LOF}
-{LOT}{return Parser.LOT}
-{SECTION}{return Parser.SECTION}
+{IDENT} {System.out.println("2");  yyparser.yylval = new ParserVal(yytext()); return Parser.IDENT;}
+{DOCTYPE} {return Parser.DOCTYPE; }
+{DOCTYPECLOSE} {return Parser.DOCTYPECLOSE; }
+{TAGENDANDCLOSE} {return Parser.TAGENDANDCLOSE; }
+{TAGEND} {return Parser.TAGEND; }
+{TAGCLOSE} {return Parser.TAGCLOSE; }
+{EQUALSIGN} {return Parser.EQUALSIGN; }
+{QUOTED} { yyparser.yylval = new ParserVal(yytext()); return Parser.QUOTED; }
+/*{COMMENT} { return Parser.COMMENT; }*/
+{PCDATA} { yyparser.yylval = new ParserVal(yytext()); return Parser.PCDATA; }
