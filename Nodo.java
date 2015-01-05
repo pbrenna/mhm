@@ -13,10 +13,11 @@ public class Nodo{
 		String JSON = "";
 		String tabg = Nodo.retTab(indentazione);
 		String tab = Nodo.retTab(indentazione + 1);
+		String tab2 = Nodo.retTab(indentazione + 2);
 		JSON = tabg + "{\n";
 		JSON = JSON + tab + "\"tag\": \"" + this.nome + "\",\n";
 		for(String key : this.attributi.keySet()){
-			JSON = JSON + tab + "\"@" + key + "\": \"" + this.attributi.get(key) + "\",\n";
+			JSON = JSON + tab + "\"@" + key + "\": " + sistemaAcapi(this.attributi.get(key), tab) + ",\n";
 		}
 		if(this.figli.size() != 0){
 			JSON = JSON + tab + "\"content\": [\n";
@@ -37,7 +38,7 @@ public class Nodo{
 					JSON = JSON + ((Nodo)n).toJSON(indentazione + 2);
 				}
 				else{
-					JSON = JSON + tab + "\t\"" + stringa + "\"";
+					JSON = JSON + tab2 + "\"" + sistemaAcapi(stringa, tab2)+"\"";
 				}
 			}
 			JSON = JSON + "\n" + tab + "]\n";
@@ -67,5 +68,8 @@ public class Nodo{
 		g.figli.add("roba sotto");
 		g.parent = n;
 		System.out.print(n.toJSON(0));
+	}
+	public static String sistemaAcapi(String s, String tabulazz){
+		return s.replaceAll("\t","").replaceAll("\n", "\\\\\n"+tabulazz).replaceAll("\r","");
 	}
 }

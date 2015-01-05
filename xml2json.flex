@@ -32,16 +32,16 @@ WHITESPACE = [" " "\n" "\r\n" "\t"]+
 %%
 
 {WHITESPACE} { }
-<OUT_OF_TAG> {PCDATA} { yyparser.yylval = new ParserVal(yytext()); System.out.println("ho letto: \""+ yytext()+"\""); return Parser.PCDATA; }
-{IDENT} {yyparser.yylval = new ParserVal(yytext()); System.out.println("Ident: "+ yytext()); return Parser.IDENT;}
-{TAGBEGIN} {System.out.println("<"); yybegin(YYINITIAL); return Parser.TAGBEGIN;}
+<OUT_OF_TAG> {PCDATA} { yyparser.yylval = new ParserVal(yytext()); return Parser.PCDATA; }
+{IDENT} {yyparser.yylval = new ParserVal(yytext());  return Parser.IDENT;}
+{TAGBEGIN} { yybegin(YYINITIAL); return Parser.TAGBEGIN;}
 {DOCTYPE} {return Parser.DOCTYPE; }
 
 {QUOTED} { yyparser.yylval = new ParserVal(yytext()); return Parser.QUOTED; }
 {DOCTYPECLOSE} {return Parser.DOCTYPECLOSE; }
-{TAGENDANDCLOSE} {System.out.println("/>"); yybegin(OUT_OF_TAG); return Parser.TAGENDANDCLOSE; }
-{TAGEND} {System.out.println(">"); yybegin(OUT_OF_TAG); return Parser.TAGEND; }
-{TAGCLOSE} {System.out.println("</");yybegin(YYINITIAL); return Parser.TAGCLOSE; }
+{TAGENDANDCLOSE} { yybegin(OUT_OF_TAG); return Parser.TAGENDANDCLOSE; }
+{TAGEND} { yybegin(OUT_OF_TAG); return Parser.TAGEND; }
+{TAGCLOSE} {yybegin(YYINITIAL); return Parser.TAGCLOSE; }
 {EQUALSIGN} {return Parser.EQUALSIGN; }
 {COMMENT} { }
 {DTD} {yybegin(OUT_OF_TAG); /*return Parser.DTDOPEN;*/}
