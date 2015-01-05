@@ -1,5 +1,6 @@
+import java.util.*;
 public class  Albero{
-	priate Nodo albero;
+	private Nodo albero;
 	private boolean outOfTree;
 	public Albero(){
 			albero = null;
@@ -20,7 +21,7 @@ public class  Albero{
 			this.albero = n;
 		}
 	}
-	public void addPCDATA(String s){
+	public void addPCDATA(String s) throws Exception {
 		if(this.outOfTree)
 			return;
 		if(albero == null){
@@ -31,7 +32,7 @@ public class  Albero{
 		}
 	}
 	
-	public void addAttributes(HashMap<String,String> s){
+	public void addAttributes(HashMap<String,String> s) {
 		if(this.outOfTree)
 			return;
 		this.albero.attributi = s;
@@ -45,7 +46,7 @@ public class  Albero{
 			this.outOfTree = true;
 	}
 	
-	public String toJSON(){
+	public String toJSON() throws Exception{
 		if(this.albero.parent != null)
 			throw new Exception("XML non completo");
 		return this.albero.toJSON(0);
