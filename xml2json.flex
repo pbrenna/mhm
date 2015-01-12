@@ -59,42 +59,44 @@ VERSION = "version"
 %%
 
 {WHITESPACE} { }
-<OUT_OF_TAG> {PCDATA} { yyparser.yylval = new ParserVal(yytext()); System.out.println("Pcdata: "+yytext()); return Parser.PCDATA; }
+<OUT_OF_TAG> {PCDATA} { yyparser.yylval = new ParserVal(yytext()); return Parser.PCDATA; }
 /*{IDENT} {yyparser.yylval = new ParserVal(yytext());  return Parser.IDENT;}*/
-{TAGBEGIN} { yybegin(YYINITIAL);System.out.println(yytext()); return Parser.TAGBEGIN;}
+{TAGBEGIN} { yybegin(YYINITIAL);return Parser.TAGBEGIN;}
 
 {QUOTED} { yyparser.yylval = new ParserVal(yytext()); return Parser.QUOTED; }
 {TAGENDANDCLOSE} { yybegin(OUT_OF_TAG); return Parser.TAGENDANDCLOSE; }
-{TAGEND} { System.out.println("trovato tagend"); yybegin(OUT_OF_TAG); return Parser.TAGEND; }
+{TAGEND} { yybegin(OUT_OF_TAG); return Parser.TAGEND; }
 {TAGCLOSE} {yybegin(YYINITIAL); return Parser.TAGCLOSE; }
 {EQUALSIGN} {return Parser.EQUALSIGN; }
-{COMMENT} { System.out.println("Commento: --"+yytext()+"--"); }
-{DTD} {yybegin(OUT_OF_TAG); System.out.println("DTD: --"+yytext()+"--"); return Parser.DTD;}
+{COMMENT} {  }
+{DTD} {yybegin(OUT_OF_TAG); return Parser.DTD;}
 
 
-{ID} {return Parser.ID;}
-{EDITION} {return Parser.EDITION;}
-{TITLE} {return Parser.TITLE;}
-{CAPTION} {return Parser.CAPTION;}
-{PATH} {return Parser.PATH;}
-{BOOK} {return Parser.BOOK;}
-{PART} {return Parser.PART;}
-{ITEM} {return Parser.ITEM;}
-{CHAPTER} {return Parser.CHAPTER;}
-{ACTION} {return Parser.ACTION;}
-{FIGURE} {return Parser.FIGURE;}
-{TABLE} {return Parser.TABLE;}
-{ROW} {return Parser.ROW;}
-{CELL} {return Parser.CELL;}
-{AUTHORNOTES} {return Parser.AUTHORNOTES;}
-{NOTE} {return Parser.NOTE;}
-{DEDICATION} {return Parser.DEDICATION;}
-{PREFACE} { return Parser.PREFACE;}
-{TOC} {return Parser.TOC;}
-{LOF} {return Parser.LOF;}
-{LOT} {return Parser.LOT;}
-{SECTION} {return Parser.SECTION;}
-{ENCODING} {return Parser.ENCODING;}
-{VERSION} {return Parser.VERSION;}
-{PREFACE_BEGIN} {yybegin(YYINITIAL); return Parser.PREFACE_BEGIN;}
-{XMLDECL} { return Parser.XMLDECL;}
+
+
+{ID} {yyparser.yylval = new ParserVal(yytext()); return Parser.ID;}
+{EDITION} {yyparser.yylval = new ParserVal(yytext()); return Parser.EDITION;}
+{TITLE} {yyparser.yylval = new ParserVal(yytext()); return Parser.TITLE;}
+{CAPTION} {yyparser.yylval = new ParserVal(yytext()); return Parser.CAPTION;}
+{PATH} {yyparser.yylval = new ParserVal(yytext()); return Parser.PATH;}
+{BOOK} {yyparser.yylval = new ParserVal(yytext()); return Parser.BOOK;}
+{PART} {yyparser.yylval = new ParserVal(yytext()); return Parser.PART;}
+{ITEM} {yyparser.yylval = new ParserVal(yytext()); return Parser.ITEM;}
+{CHAPTER} {yyparser.yylval = new ParserVal(yytext()); return Parser.CHAPTER;}
+{ACTION} {yyparser.yylval = new ParserVal(yytext()); return Parser.ACTION;}
+{FIGURE} {yyparser.yylval = new ParserVal(yytext()); return Parser.FIGURE;}
+{TABLE} {yyparser.yylval = new ParserVal(yytext()); return Parser.TABLE;}
+{ROW} {yyparser.yylval = new ParserVal(yytext()); return Parser.ROW;}
+{CELL} {yyparser.yylval = new ParserVal(yytext()); return Parser.CELL;}
+{AUTHORNOTES} {yyparser.yylval = new ParserVal(yytext()); return Parser.AUTHORNOTES;}
+{NOTE} {yyparser.yylval = new ParserVal(yytext()); return Parser.NOTE;}
+{DEDICATION} {yyparser.yylval = new ParserVal(yytext()); return Parser.DEDICATION;}
+{PREFACE} {yyparser.yylval = new ParserVal(yytext());  return Parser.PREFACE;}
+{TOC} {yyparser.yylval = new ParserVal(yytext()); return Parser.TOC;}
+{LOF} {yyparser.yylval = new ParserVal(yytext()); return Parser.LOF;}
+{LOT} {yyparser.yylval = new ParserVal(yytext()); return Parser.LOT;}
+{SECTION} {yyparser.yylval = new ParserVal(yytext()); return Parser.SECTION;}
+{ENCODING} {yyparser.yylval = new ParserVal(yytext()); return Parser.ENCODING;}
+{VERSION} {yyparser.yylval = new ParserVal(yytext()); return Parser.VERSION;}
+{PREFACE_BEGIN} {yyparser.yylval = new ParserVal("preface"); yybegin(YYINITIAL); return Parser.PREFACE_BEGIN;}
+{XMLDECL} {yyparser.yylval = new ParserVal(yytext());  return Parser.XMLDECL;}
