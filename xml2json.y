@@ -8,6 +8,7 @@
 %token TAGENDANDCLOSE
 %token TAGEND
 %token TAGCLOSE
+%token PREFACE_BEGIN
 %token EQUALSIGN
 %token COMMENT
 %token DTD
@@ -41,15 +42,13 @@
 %%
 input : XMLDECL DTD book_element;
 
-xml_declaration_attributes:
-	VERSION EQUALSIGN QUOTED ENCODING EQUALSIGN QUOTED |
-	ENCODING EQUALSIGN QUOTED VERSION EQUALSIGN QUOTED;
 maybe_authornotes_element: authornotes_element | ;
 plus_part_element: part_element | plus_part_element part_element;
 plus_chapter_element: chapter_element | plus_chapter_element chapter_element;
 id_attribute: ID EQUALSIGN QUOTED;
+maybe_dedication_element: dedication_element| ;
 title_attribute: TITLE EQUALSIGN QUOTED;
-maybe_id_attribute: id_attribute | ;
+/*maybe_id_attribute: id_attribute | ;*/
 /*maybe_title_attribute: title_attribute| ;*/
 fine_part_children: lof_element lot_element | | lot_element | lof_element;
 maybe_path: path_attribute | ;
@@ -60,13 +59,11 @@ id_and_title: id_attribute title_attribute | title_attribute id_attribute;
 
 book_element : TAGBEGIN BOOK book_attributes TAGEND book_children TAGCLOSE BOOK TAGEND;
 	book_attributes : | EDITION EQUALSIGN QUOTED;
-	book_children: book_children_inizio plus_part_element maybe_authornotes_element;
-	book_children_inizio: dedication_element preface_element | preface_element;
+	book_children: maybe_dedication_element preface_element plus_part_element maybe_authornotes_element;
 
 
-preface_element: TAGBEGIN PREFACE TAGEND PCDATA TAGCLOSE PREFACE TAGEND;
-maybe_dedication_element: dedication_element | ;
 dedication_element: TAGBEGIN DEDICATION TAGEND PCDATA TAGCLOSE DEDICATION TAGEND;
+preface_element: PREFACE_BEGIN TAGEND PCDATA TAGCLOSE PREFACE TAGEND;
 
 part_element: TAGBEGIN PART part_attributes TAGEND part_children TAGCLOSE PART TAGEND;
 	part_children: toc_element plus_chapter_element fine_part_children;
@@ -96,8 +93,8 @@ section_element: TAGBEGIN SECTION id_and_title TAGEND section_children TAGCLOSE 
 
 figure_element: TAGBEGIN FIGURE figure_attributes TAGEND TAGCLOSE FIGURE TAGEND |
 		TAGBEGIN FIGURE figure_attributes TAGENDANDCLOSE;
-	figure_attributes: maybe_path id_attribute maybe_path title_attribute maybe_path |
-				maybe_path title_attribute maybe_path id_attribute maybe_path;
+	figure_attributes: maybe_path id_attribute maybe_path caption_attribute maybe_path |
+				maybe_path caption_attribute maybe_path id_attribute maybe_path;
 
 table_element: TAGBEGIN TABLE table_attributes TAGEND table_children TAGCLOSE TABLE TAGEND;
 	table_attributes: id_attribute caption_attribute | caption_attribute id_attribute; 

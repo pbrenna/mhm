@@ -25,7 +25,7 @@ TAGCLOSE = "</"
 /*TAGCLOSE = TAGBEGIN "/" TAGNAME TAGEND*/
 EQUALSIGN = "="
 QUOTED = "\"" [^"\""]+ "\"" | "'" [^"'"]+ "'"
-COMMENT = "<!--" .+ "-->"
+COMMENT = "<!--" [^"-->"]+ "-->"
 WHITESPACE = [" " "\n" "\r\n" "\t"]+
 
 /*token hard coded :) */
@@ -47,6 +47,7 @@ CELL = "cell"
 AUTHORNOTES = "authornotes"
 NOTE = "note"
 DEDICATION = "dedication"
+PREFACE_BEGIN = "<preface"
 PREFACE = "preface"
 TOC = "toc"
 LOF = "lof"
@@ -88,11 +89,12 @@ VERSION = "version"
 {AUTHORNOTES} {return Parser.AUTHORNOTES;}
 {NOTE} {return Parser.NOTE;}
 {DEDICATION} {return Parser.DEDICATION;}
-{PREFACE} {System.out.println(yytext()); return Parser.PREFACE;}
+{PREFACE} { return Parser.PREFACE;}
 {TOC} {return Parser.TOC;}
 {LOF} {return Parser.LOF;}
 {LOT} {return Parser.LOT;}
 {SECTION} {return Parser.SECTION;}
 {ENCODING} {return Parser.ENCODING;}
 {VERSION} {return Parser.VERSION;}
+{PREFACE_BEGIN} {yybegin(YYINITIAL); return Parser.PREFACE_BEGIN;}
 {XMLDECL} { return Parser.XMLDECL;}
