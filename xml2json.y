@@ -2,11 +2,9 @@
 	import java.io.*;
 	import java.util.*;
 %}
-%token<sval> IDENT
 %token<sval> QUOTED
 %token TAGBEGIN
-%token DOCTYPE
-%token DOCTYPECLOSE
+%token XMLDECL
 %token TAGENDANDCLOSE
 %token TAGEND
 %token TAGCLOSE
@@ -15,48 +13,106 @@
 %token DTD
 %token<sval> PCDATA
 
-%type<obj> generic_element input closed_element element attr_list child_list
+%token ID
+%token EDITION
+%token TITLE
+%token CAPTION
+%token PATH 
+%token BOOK
+%token PART
+%token ITEM
+%token CHAPTER
+%token ACTION
+%token FIGURE
+%token TABLE
+%token ROW
+%token CELL
+%token AUTHORNOTES
+%token NOTE
+%token DEDICATION
+%token PREFACE
+%token TOC
+%token LOF
+%token LOT
+%token SECTION
+%token ENCODING
+%token VERSION
+
 %%
+input : XMLDECL DTD book_element;
 
-input: xml_declaration generic_element { this.radice = (Nodo) $2; };
+xml_declaration_attributes:
+	VERSION EQUALSIGN QUOTED ENCODING EQUALSIGN QUOTED |
+	ENCODING EQUALSIGN QUOTED VERSION EQUALSIGN QUOTED;
+maybe_dedication_element:  | dedication_element;
+maybe_authornotes_element: authornotes_element | ;
+plus_part_element: part_element | plus_part_element part_element;
+plus_chapter_element: chapter_element | plus_chapter_element chapter_element;
+id_attribute: ID EQUALSIGN QUOTED;
+title_attribute: ID EQUALSIGN QUOTED;
+maybe_id_attribute: id_attribute | ;
+maybe_title_attribute: title_attribute| ;
+maybe_lof_element: lof_element | ;
+maybe_path: path_attribute | ;
+path_attribute: PATH EQUALSIGN QUOTED;
+caption_attribute: CAPTION EQUALSIGN QUOTED;
+
+id_and_title: id_attribute title_attribute | title_attribute id_attribute;
+
+book_element : TAGBEGIN BOOK book_attributes TAGEND book_children TAGCLOSE BOOK TAGEND;
+	book_attributes : | EDITION EQUALSIGN QUOTED;
+	book_children: maybe_dedication_element preface_element /*plus_part_element maybe_authornotes_element*/;
 
 
-attr_list: /*vuoto*/ { $$ = new HashMap<String,String>(); }
-	| IDENT EQUALSIGN QUOTED attr_list {
-	 	 	((HashMap<String,String>) $4).put($1,$3); $$= $4;
-		};
+dedication_element: TAGBEGIN DEDICATION TAGEND PCDATA TAGCLOSE DEDICATION TAGEND;
+preface_element: TAGBEGIN PREFACE TAGEND PCDATA TAGCLOSE PREFACE TAGEND;
 
-xml_declaration: 
-	DOCTYPE attr_list DOCTYPECLOSE;
+part_element: TAGBEGIN PART part_attributes TAGEND part_children TAGCLOSE PART TAGEND;
+	part_children: toc_element plus_chapter_element maybe_lof_element lot_element;
+	/*part_attributes: maybe_title_attribute maybe_id_attribute part_attributes | id_attribute;*/
+	part_attributes: id_attribute| id_attribute title_attribute | title_attribute id_attribute;
 
-generic_element: 
-	  closed_element 	{ $$ = $1; }
-	| element 		{ $$ = $1; };
+toc_element: TAGBEGIN TOC TAGEND toc_element_children TAGCLOSE TOC TAGEND;
+	toc_element_children: item_element | toc_element_children;
+	
+lof_element: TAGBEGIN LOF TAGEND lof_element_children TAGCLOSE LOF TAGEND;
+	lof_element_children: item_element | lof_element_children;
+	
+lot_element: TAGBEGIN LOT TAGEND lot_element_children TAGCLOSE LOT TAGEND;
+	lot_element_children: item_element | lot_element_children;
 
-element: TAGBEGIN IDENT attr_list TAGEND child_list TAGCLOSE IDENT TAGEND {
-		if(! $2.equals($7) ) {
-			this.e = new Exception("Aperto tag "+ $2+", chiuso "+ $7);
-			break;
-		}
-		Nodo n = new Nodo();
-		n.nome = $2;
-		n.attributi = (HashMap<String,String>) $3;
-		n.figli = (ArrayList<Object>) $5;
-		n.parent = null;
-		$$ = n;
-	};
+item_element: TAGBEGIN ITEM id_attribute TAGEND PCDATA TAGCLOSE ITEM TAGEND;
 
-closed_element: TAGBEGIN IDENT attr_list TAGENDANDCLOSE {
-		Nodo n = new Nodo();
-		n.nome = $2;
-		n.attributi = (HashMap<String,String>) $3;
-		n.parent= null;
-		$$ = n;
-	};
+chapter_element: TAGBEGIN CHAPTER id_and_title TAGEND chapter_children TAGCLOSE CHAPTER TAGEND;
+	chapter_children: section_element | chapter_children section_element;
 
-child_list: /*vuoto*/ 			{ $$ = new ArrayList<Object>(); }
-	| generic_element child_list 	{ ((ArrayList<Object>) $2).add($1); $$=$2; }
-	| PCDATA child_list 		{ ((ArrayList<Object>) $2).add($1); $$=$2; };
+section_element: TAGBEGIN SECTION id_and_title TAGEND section_children TAGCLOSE SECTION TAGEND |
+		 TAGBEGIN SECTION id_and_title TAGENDANDCLOSE;
+	section_children: | section_children PCDATA
+			  | section_children section_element 
+			  | section_children figure_element
+			  | section_children table_element;
+
+figure_element: TAGBEGIN FIGURE figure_attributes TAGEND TAGCLOSE FIGURE TAGEND |
+		TAGBEGIN FIGURE figure_attributes TAGENDANDCLOSE;
+	figure_attributes: maybe_path id_attribute maybe_path title_attribute maybe_path |
+				maybe_path title_attribute maybe_path id_attribute maybe_path;
+
+table_element: TAGBEGIN TABLE table_attributes TAGEND table_children TAGCLOSE TABLE TAGEND;
+	table_attributes: id_attribute caption_attribute | caption_attribute id_attribute; 
+	table_children: row_element | table_children row_element;
+
+row_element: TAGBEGIN ROW TAGEND row_children TAGCLOSE ROW TAGEND;
+	row_children: cell_element | row_children cell_element;
+
+cell_element: TAGBEGIN CELL TAGEND PCDATA TAGCLOSE CELL TAGEND | 
+		TAGBEGIN CELL TAGENDANDCLOSE;
+
+authornotes_element: TAGBEGIN AUTHORNOTES TAGEND authornotes_children TAGCLOSE AUTHORNOTES TAGEND;
+	authornotes_children: note_element | authornotes_children note_element;
+
+note_element: TAGBEGIN NOTE TAGEND PCDATA TAGCLOSE NOTE TAGEND;
+
 
 %%
 
@@ -69,15 +125,15 @@ public static void main(String args[]) throws IOException {
 		// parse a file
 		FileReader r = new FileReader(args[0]);
 		yyparser = new Parser(r);
-		//yyparser.yydebug= true;
+		yyparser.yydebug= true;
 		yyparser.yyparse();
-		if(yyparser.e != null) {
+		/*if(yyparser.e != null) {
 			System.err.println(yyparser.e);
 		}
 		PrintWriter writer = new PrintWriter(args[1], "UTF-8");
 		writer.print(yyparser.radice.toJSON(0));
 		writer.close();
-		System.out.println("Scritto il file " + args[1]);
+		System.out.println("Scritto il file " + args[1]);*/
 	} else {
 		System.err.println("Errore: specificare due file.");
 		return;
