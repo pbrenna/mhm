@@ -123,9 +123,13 @@ figure_element: TAGBEGIN FIGURE figure_attributes TAGEND TAGCLOSE FIGURE TAGEND
 		| TAGBEGIN FIGURE figure_attributes TAGENDANDCLOSE
 			{ $$ = nodo($2, $3, njoin()); };
 	figure_attributes: maybe_path id_attribute maybe_path caption_attribute maybe_path
-				{ $$ = ajoin($1, $2, $3, $4, $5); }
+				{ if($1 == null && $3==null && $5 == null)
+					$$ = ajoin($1, $2, $3, $4, attr("path", "placeholder.jpg"));
+				  else $$ = ajoin($1, $2, $3, $4, $5);};
 			| maybe_path caption_attribute maybe_path id_attribute maybe_path
-				{ $$ = ajoin($1, $2, $3, $4, $5); };
+				{ if($1 == null && $3==null && $5 == null)
+					$$ = ajoin($1, $2, $3, $4, attr("path", "placeholder.jpg"));
+				  else $$ = ajoin($1, $2, $3, $4, $5); };
 
 table_element: TAGBEGIN TABLE table_attributes TAGEND table_children TAGCLOSE TABLE TAGEND
 			{$$ = nodo($2, $3, $5);};
@@ -179,7 +183,7 @@ public static void main(String args[]) throws Exception {
 		writer.close();
 		System.out.println("Scritto il file " + args[1]);*/
 	} else {
-		System.err.println("Errore: specificare due file.");
+		System.err.println("Errore: specificare un file.");
 		return;
 	}
 }

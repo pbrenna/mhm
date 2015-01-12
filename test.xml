@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE book SYSTEM "book.dtd">
 <book>
- 	<dedication>
+ 	<dedication><!-- ciao-->
  		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,
 		sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam
 		cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec
@@ -14,7 +14,7 @@
 		Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 		Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,
 		et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus
-		magna sed lacus pellentesque hendrerit.
+		magna sed lacus pellentesque hendrerit.<!-- cpsodif-->
 	</preface>
 	<part id="p1">
 		<toc>
@@ -136,7 +136,7 @@
 			<section id="p2_c1_s2" title="Sezione 2">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,
 				sit amet condimentum turpis eleifend.
-				<figure id="f1" caption="Figura 1" path="figura_1.jpg" />
+				<figure path="figura_1.jpg" id="f1" caption="Figura 1"  />
 				Vivamus lobortis lacus eu mi placerat malesuada. Nullam
 				cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec
 				erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis
@@ -198,7 +198,7 @@
 				Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,
 				et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus
 				magna sed lacus pellentesque hendrerit.
-				<figure id="f2" caption="Figura 2" path="figura_2.jpg" />
+				<figure id="f2" caption="Figura 2" />
 				<section id="p2_c2_s11" title="Sottoezione 1.1">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,
 					sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam

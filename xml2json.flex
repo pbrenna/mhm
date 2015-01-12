@@ -25,7 +25,7 @@ TAGCLOSE = "</"
 /*TAGCLOSE = TAGBEGIN "/" TAGNAME TAGEND*/
 EQUALSIGN = "="
 QUOTED = "\"" [^"\""]+ "\"" | "'" [^"'"]+ "'"
-COMMENT = "<!--" [^"-->"]+ "-->"
+COMMENT = "<!--" [^"-->"]* "-->"
 WHITESPACE = [" " "\n" "\r\n" "\t"]+
 
 /*token hard coded :) */
