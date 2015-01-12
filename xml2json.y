@@ -44,15 +44,14 @@ input : XMLDECL DTD book_element;
 xml_declaration_attributes:
 	VERSION EQUALSIGN QUOTED ENCODING EQUALSIGN QUOTED |
 	ENCODING EQUALSIGN QUOTED VERSION EQUALSIGN QUOTED;
-maybe_dedication_element:  | dedication_element;
 maybe_authornotes_element: authornotes_element | ;
 plus_part_element: part_element | plus_part_element part_element;
 plus_chapter_element: chapter_element | plus_chapter_element chapter_element;
 id_attribute: ID EQUALSIGN QUOTED;
-title_attribute: ID EQUALSIGN QUOTED;
+title_attribute: TITLE EQUALSIGN QUOTED;
 maybe_id_attribute: id_attribute | ;
-maybe_title_attribute: title_attribute| ;
-maybe_lof_element: lof_element | ;
+/*maybe_title_attribute: title_attribute| ;*/
+fine_part_children: lof_element lot_element | | lot_element | lof_element;
 maybe_path: path_attribute | ;
 path_attribute: PATH EQUALSIGN QUOTED;
 caption_attribute: CAPTION EQUALSIGN QUOTED;
@@ -61,25 +60,27 @@ id_and_title: id_attribute title_attribute | title_attribute id_attribute;
 
 book_element : TAGBEGIN BOOK book_attributes TAGEND book_children TAGCLOSE BOOK TAGEND;
 	book_attributes : | EDITION EQUALSIGN QUOTED;
-	book_children: maybe_dedication_element preface_element /*plus_part_element maybe_authornotes_element*/;
+	book_children: book_children_inizio plus_part_element maybe_authornotes_element;
+	book_children_inizio: dedication_element preface_element | preface_element;
 
 
-dedication_element: TAGBEGIN DEDICATION TAGEND PCDATA TAGCLOSE DEDICATION TAGEND;
 preface_element: TAGBEGIN PREFACE TAGEND PCDATA TAGCLOSE PREFACE TAGEND;
+maybe_dedication_element: dedication_element | ;
+dedication_element: TAGBEGIN DEDICATION TAGEND PCDATA TAGCLOSE DEDICATION TAGEND;
 
 part_element: TAGBEGIN PART part_attributes TAGEND part_children TAGCLOSE PART TAGEND;
-	part_children: toc_element plus_chapter_element maybe_lof_element lot_element;
+	part_children: toc_element plus_chapter_element fine_part_children;
 	/*part_attributes: maybe_title_attribute maybe_id_attribute part_attributes | id_attribute;*/
 	part_attributes: id_attribute| id_attribute title_attribute | title_attribute id_attribute;
 
 toc_element: TAGBEGIN TOC TAGEND toc_element_children TAGCLOSE TOC TAGEND;
-	toc_element_children: item_element | toc_element_children;
+	toc_element_children: item_element | toc_element_children item_element;
 	
 lof_element: TAGBEGIN LOF TAGEND lof_element_children TAGCLOSE LOF TAGEND;
-	lof_element_children: item_element | lof_element_children;
+	lof_element_children: item_element | lof_element_children item_element;
 	
 lot_element: TAGBEGIN LOT TAGEND lot_element_children TAGCLOSE LOT TAGEND;
-	lot_element_children: item_element | lot_element_children;
+	lot_element_children: item_element | lot_element_children item_element;
 
 item_element: TAGBEGIN ITEM id_attribute TAGEND PCDATA TAGCLOSE ITEM TAGEND;
 
