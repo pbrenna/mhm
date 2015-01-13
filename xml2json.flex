@@ -9,9 +9,12 @@
     this(r);
     this.yyparser = yyparser;
   }
+  private String cdata_value;
 %}
 
 %s OUT_OF_TAG
+%x IN_COMMENT
+%x IN_CDATA
 
 PCDATA = [^<]+
 /*IDENT = [a-z]+*/
@@ -25,8 +28,12 @@ TAGCLOSE = "</"
 /*TAGCLOSE = TAGBEGIN "/" TAGNAME TAGEND*/
 EQUALSIGN = "="
 QUOTED = "\"" [^"\""]+ "\"" | "'" [^"'"]+ "'"
-COMMENT = "<!--" [^"-->"]* "-->"
+COMMENT_START = "<!--" 
+COMMENT_END = "-->"
+CDATA_START = "<![CDATA["
+CDATA_END = "]]>"
 WHITESPACE = [" " "\n" "\r\n" "\t"]+
+CHAR = .
 
 /*token hard coded :) */
 /* Secondo approccio che invece di utizzzare un generico TAGNAME definisce un token per ogni tag*/
@@ -59,6 +66,7 @@ VERSION = "version"
 %%
 
 {WHITESPACE} { }
+/*{COMMENT} { System.out.println("Commento: "+yytext()); }*/
 <OUT_OF_TAG> {PCDATA} { yyparser.yylval = new ParserVal(yytext()); return Parser.PCDATA; }
 /*{IDENT} {yyparser.yylval = new ParserVal(yytext());  return Parser.IDENT;}*/
 {TAGBEGIN} { yybegin(YYINITIAL);return Parser.TAGBEGIN;}
@@ -68,11 +76,16 @@ VERSION = "version"
 {TAGEND} { yybegin(OUT_OF_TAG); return Parser.TAGEND; }
 {TAGCLOSE} {yybegin(YYINITIAL); return Parser.TAGCLOSE; }
 {EQUALSIGN} {return Parser.EQUALSIGN; }
-{COMMENT} {  }
 {DTD} {yybegin(OUT_OF_TAG); return Parser.DTD;}
 
 
+<OUT_OF_TAG>{COMMENT_START} {yybegin(IN_COMMENT);}
+<IN_COMMENT>{CHAR} { }
+<IN_COMMENT>{COMMENT_END} {yybegin(OUT_OF_TAG);}
 
+<OUT_OF_TAG>{CDATA_START} {this.cdata_value = ""; yybegin(IN_CDATA);}
+<IN_CDATA>{CHAR} { this.cdata_value += yytext(); }
+<IN_CDATA>{CDATA_END} {yyparser.yylval = new ParserVal(this.cdata_value); yybegin(OUT_OF_TAG); return Parser.PCDATA;}
 
 {ID} {yyparser.yylval = new ParserVal(yytext()); return Parser.ID;}
 {EDITION} {yyparser.yylval = new ParserVal(yytext()); return Parser.EDITION;}

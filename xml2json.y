@@ -39,6 +39,7 @@
 %token<sval> VERSION
 %token<sval> PREFACE_BEGIN
 
+%type<sval> pcdata_str
 %type<obj> id_attribute title_attribute path_attribute caption_attribute id_and_title book_attributes book_children maybe_path part_attributes figure_attributes table_attributes maybe_authornotes_element authornotes_element plus_part_element part_element plus_chapter_element chapter_element maybe_dedication_element dedication_element book_element book_children preface_element part_element part_children toc_element fine_part_children toc_element_children item_element lof_element lof_element_children lot_element lot_element_children chapter_children section_element section_children figure_element table_element table_children row_element row_children cell_element authornotes_children note_element id_ref_attribute
 %%
 input : XMLDECL DTD book_element { this.radice = (Nodo) $3;};
@@ -75,9 +76,9 @@ book_element: TAGBEGIN BOOK book_attributes TAGEND book_children TAGCLOSE BOOK T
 		{ $$ = njoin($1, $2, $3, $4); }
 	;
 
-dedication_element: TAGBEGIN DEDICATION TAGEND PCDATA TAGCLOSE DEDICATION TAGEND
+dedication_element: TAGBEGIN DEDICATION TAGEND pcdata_str TAGCLOSE DEDICATION TAGEND
 		{ $$ = nodo($2, ajoin(), da_pcdata($4)); } ;
-preface_element: PREFACE_BEGIN TAGEND PCDATA TAGCLOSE PREFACE TAGEND
+preface_element: PREFACE_BEGIN TAGEND pcdata_str TAGCLOSE PREFACE TAGEND
 		{ $$ = nodo($1, ajoin(), da_pcdata($3)); } ;
 
 part_element: TAGBEGIN PART part_attributes TAGEND part_children TAGCLOSE PART TAGEND
@@ -103,7 +104,7 @@ lot_element: TAGBEGIN LOT TAGEND lot_element_children TAGCLOSE LOT TAGEND
 	lot_element_children: item_element { $$=njoin($1); }
 				| lot_element_children item_element {$$=eladd($1, $2);};
 
-item_element: TAGBEGIN ITEM id_ref_attribute TAGEND PCDATA TAGCLOSE ITEM TAGEND 
+item_element: TAGBEGIN ITEM id_ref_attribute TAGEND pcdata_str TAGCLOSE ITEM TAGEND 
 		{ $$ = nodo($2, $3, da_pcdata($5)); };
 
 chapter_element: TAGBEGIN CHAPTER id_and_title TAGEND chapter_children TAGCLOSE CHAPTER TAGEND
@@ -113,7 +114,7 @@ chapter_element: TAGBEGIN CHAPTER id_and_title TAGEND chapter_children TAGCLOSE 
 section_element: TAGBEGIN SECTION id_and_title TAGEND section_children TAGCLOSE SECTION TAGEND 
 			{ $$ = nodo($2, $3, $5); };
 	section_children: /*vuoto*/ { $$ = njoin(); }
-			  | section_children PCDATA { $$ = eladd($1, $2); }
+			  | section_children pcdata_str { $$ = eladd($1, $2); }
 			  | section_children section_element { $$ = eladd($1, $2); }
 			  | section_children figure_element { $$ = eladd($1, $2); }
 			  | section_children table_element { $$ = eladd($1, $2); };
@@ -143,7 +144,7 @@ row_element: TAGBEGIN ROW TAGEND row_children TAGCLOSE ROW TAGEND
 	row_children: cell_element { $$ = njoin($1); } 
 		| row_children cell_element {$$ = eladd($1, $2); };
 
-cell_element: TAGBEGIN CELL TAGEND PCDATA TAGCLOSE CELL TAGEND
+cell_element: TAGBEGIN CELL TAGEND pcdata_str TAGCLOSE CELL TAGEND
 		{ $$ = nodo($2, ajoin(), da_pcdata($4));}
 	 | TAGBEGIN CELL TAGENDANDCLOSE
 	 	{ $$ = nodo($2, ajoin(), njoin());};
@@ -153,9 +154,10 @@ authornotes_element: TAGBEGIN AUTHORNOTES TAGEND authornotes_children TAGCLOSE A
 	authornotes_children: note_element {$$ = njoin($1);}
 			| authornotes_children note_element {$$ = eladd($1, $2);};
 
-note_element: TAGBEGIN NOTE TAGEND PCDATA TAGCLOSE NOTE TAGEND
+note_element: TAGBEGIN NOTE TAGEND pcdata_str TAGCLOSE NOTE TAGEND
 		{$$ = nodo($2, ajoin(), da_pcdata($4));};
 
+pcdata_str: PCDATA {$$ = $1;} | pcdata_str PCDATA {$$= $1+$2;};
 
 %%
 
@@ -170,7 +172,7 @@ public static void main(String args[]) throws Exception {
 		// parse a file
 		FileReader r = new FileReader(args[0]);
 		yyparser = new Parser(r);
-		//yyparser.yydebug= true;
+		yyparser.yydebug= true;
 		yyparser.yyparse();
 		if(yyparser.e != null) {
 			throw yyparser.e;
