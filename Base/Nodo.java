@@ -18,7 +18,7 @@ public class Nodo{
 		for(String key : this.attributi.keySet()){
 			JSON = JSON + tab + "\"@" + key + "\": " + sistemaAcapi(this.attributi.get(key), tab) + ",\n";
 		}
-		if(this.figli.size() != 0){
+		//if(this.figli.size() != 0){
 			JSON = JSON + tab + "\"content\": [\n";
 			boolean primo = true;
 			for(Object n: this.figli){
@@ -41,7 +41,7 @@ public class Nodo{
 				}
 			}
 			JSON = JSON + "\n" + tab + "]\n";
-		}
+		//}
 		JSON = JSON + tabg + "}";
 		if(indentazione == 0){
 			JSON = JSON + "\n";
@@ -60,12 +60,12 @@ public class Nodo{
 		Nodo g = new Nodo();
 		n.nome = "book";
 		n.attributi.put("id", "ciao");
-		n.parent = null;
+		//n.parent = null;
 		n.figli.add("Ciao questa è una prova");
 		n.figli.add(g);
 		g.nome = "bho";
 		g.figli.add("roba sotto");
-		g.parent = n;
+		//g.parent = n;
 		System.out.print(n.toJSON(0));
 	}
 	public static String sistemaAcapi(String s, String tabulazz){

@@ -172,7 +172,7 @@ public static void main(String args[]) throws Exception {
 		// parse a file
 		FileReader r = new FileReader(args[0]);
 		yyparser = new Parser(r);
-		yyparser.yydebug= true;
+		//yyparser.yydebug= true;
 		yyparser.yyparse();
 		if(yyparser.e != null) {
 			throw yyparser.e;

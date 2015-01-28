@@ -37,7 +37,7 @@ public class Nodo{
 	}
 	
 	public static String sistemaAcapi(String s, String tabulazz){
-		return s.replaceAll("\t","").replaceAll("\n", "\\\\\n"+tabulazz).replaceAll("\r","");
+		return s.replaceAll("\t","").replaceAll("\\\\\n", "\n").replaceAll("\n", "\n"+tabulazz).replaceAll("\r","");
 	}
 	
 	public static void main(String args[]){
