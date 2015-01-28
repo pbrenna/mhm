@@ -4,7 +4,6 @@ public class Nodo{
 	public String nome;
 	public HashMap<String, String> attributi;
 	public ArrayList<Object> figli;
-	public Nodo parent;
 	public Nodo(){
 		this.attributi = new HashMap<String, String>();
 		this.figli = new ArrayList<Object>();
