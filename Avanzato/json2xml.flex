@@ -36,5 +36,5 @@ SPAZIVARI = "\n" | "\t" | " " | "\r"
 {TAG} {return Parser.TAG;}
 {CONTENT} {return Parser.CONTENT;}
 {AN} {yyparser.yylval = new ParserVal(yytext()); return Parser.AN;}
-{QUOTED} {yyparser.yylval = new ParserVal(yytext()); System.out.println(yytext()); return Parser.QUOTED;}
+{QUOTED} {yyparser.yylval = new ParserVal(yytext()); return Parser.QUOTED;}
 {SPAZIVARI} {}

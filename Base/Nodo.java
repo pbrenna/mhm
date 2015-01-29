@@ -69,6 +69,6 @@ public class Nodo{
 		System.out.print(n.toJSON(0));
 	}
 	public static String sistemaAcapi(String s, String tabulazz){
-		return s.replaceAll("\t","").replaceAll("\n", "\\\\\n"+tabulazz).replaceAll("\r","");
+		return s.trim().replaceAll("\t","").replaceAll("\n", "\\\\\n"+tabulazz).replaceAll("\r","");
 	}
 }

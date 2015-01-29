@@ -11,7 +11,7 @@ public class Nodo{
 	public String toXML(int indentazione){
 		String XML = "";
 		if(indentazione == 0){
-			XML = "<?xml version=\"1.0\" encoding=\"utf-8\"?> \n <!DOCTYPE book SYSTEM \"book.dtd\">\n";
+			XML = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!DOCTYPE book SYSTEM \"book.dtd\">\n";
 		}
 		XML = XML + Nodo.retTab(indentazione) + "<" + this.nome;
 		for(String s: this.attributi.keySet()){
@@ -37,7 +37,12 @@ public class Nodo{
 	}
 	
 	public static String sistemaAcapi(String s, String tabulazz){
-		return s.replaceAll("\t","").replaceAll("\\\\\n", "\n").replaceAll("\n", "\n"+tabulazz).replaceAll("\r","");
+		return s.replaceAll("\t","")
+			.replaceAll("\\\\\n", "\n")
+			.replaceAll("\n", "\n"+tabulazz)
+			.replaceAll("\r","")
+			.replaceAll("<", "&lt;")
+			.replaceAll(">", "&gt;");
 	}
 	
 	public static void main(String args[]){
