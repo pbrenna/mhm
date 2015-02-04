@@ -1,0 +1,532 @@
+{
+	"tag": "book",
+	"content": [
+		{
+			"tag": "dedication",
+			"content": [
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,\
+				sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam\
+				cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec\
+				erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis\
+				dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum."
+			]
+		},
+		{
+			"tag": "preface",
+			"content": [
+				"Suspendisse et felis lacus. Donec\
+				lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.\
+				Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\
+				Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,\
+				et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus\
+				magna sed lacus pellentesque hendrerit."
+			]
+		},
+		{
+			"tag": "part",
+			"@id": "p1",
+			"content": [
+				{
+					"tag": "toc",
+					"content": [
+						{
+							"tag": "item",
+							"@id": "p1_c1",
+							"content": [
+								"Capitolo 1"
+							]
+						},
+						{
+							"tag": "item",
+							"@id": "p1_c1_s1",
+							"content": [
+								"Sezione 1"
+							]
+						},
+						{
+							"tag": "item",
+							"@id": "p1_c1_s2",
+							"content": [
+								"Sezione 2"
+							]
+						},
+						{
+							"tag": "item",
+							"@id": "p1_c1_s21",
+							"content": [
+								"Sottosezione 2.1"
+							]
+						},
+						{
+							"tag": "item",
+							"@id": "p1_c1_s22",
+							"content": [
+								"Sottosezione 2.2"
+							]
+						},
+						{
+							"tag": "item",
+							"@id": "p1_c1_s23",
+							"content": [
+								"Sottosezione 2.3"
+							]
+						},
+						{
+							"tag": "item",
+							"@id": "p1_c1_s3",
+							"content": [
+								"Sezione 3"
+							]
+						}
+					]
+				},
+				{
+					"tag": "chapter",
+					"@id": "p1_c1",
+					"@title": "Capitolo 1",
+					"content": [
+						{
+							"tag": "section",
+							"@id": "p1_c1_s1",
+							"@title": "Sezione 1",
+							"content": [
+								"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,\
+								sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam\
+								cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec\
+								erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis\
+								dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec\
+								lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.\
+								Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\
+								Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,\
+								et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus\
+								magna sed lacus pellentesque hendrerit."
+							]
+						},
+						{
+							"tag": "section",
+							"@id": "p1_c1_s2",
+							"@title": "Sezione 2",
+							"content": [
+								{
+									"tag": "section",
+									"@id": "p1_c1_s21",
+									"@title": "Sottosezione 2.1",
+									"content": [
+										"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,\
+										sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam\
+										cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec\
+										erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis\
+										dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec\
+										lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.\
+										Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\
+										Suspendisse tristique id quam ut cursus.",
+										{
+											"tag": "table",
+											"@caption": "Tabella 1",
+											"@id": "t1",
+											"content": [
+												{
+													"tag": "row",
+													"content": [
+														{
+															"tag": "cell",
+															"content": [
+																"Colonna 1"
+															]
+														},
+														{
+															"tag": "cell",
+															"content": [
+																"Colonna 2"
+															]
+														},
+														{
+															"tag": "cell",
+															"content": [
+																"Colonna 3"
+															]
+														}
+													]
+												},
+												{
+													"tag": "row",
+													"content": [
+														{
+															"tag": "cell",
+															"content": [
+																"Cella 1"
+															]
+														},
+														{
+															"tag": "cell",
+															"content": [
+																"Cella 2"
+															]
+														},
+														{
+															"tag": "cell",
+															"content": [
+																"Cella 3"
+															]
+														}
+													]
+												}
+											]
+										},
+										"Duis imperdiet consectetur dui. Sed sed laoreet justo,\
+										et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus\
+										magna sed lacus pellentesque hendrerit."
+									]
+								},
+								{
+									"tag": "section",
+									"@id": "p1_c1_s22",
+									"@title": "Sottosezione 2.1",
+									"content": [
+										"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,\
+										sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam\
+										cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec\
+										erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis\
+										dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec\
+										lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.\
+										Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\
+										Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,\
+										et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus\
+										magna sed lacus pellentesque hendrerit."
+									]
+								},
+								{
+									"tag": "section",
+									"@id": "p1_c1_s23",
+									"@title": "Sottosezione 2.1",
+									"content": [
+										"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,\
+										sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam\
+										cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec\
+										erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis\
+										dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec\
+										lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.\
+										Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\
+										Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,\
+										et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus\
+										magna sed lacus pellentesque hendrerit."
+									]
+								}
+							]
+						},
+						{
+							"tag": "section",
+							"@id": "p1_c1_s3",
+							"@title": "Sezione 3",
+							"content": [
+								"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,\
+								sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam\
+								cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec\
+								erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis\
+								dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec\
+								lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.\
+								Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\
+								Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,\
+								et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus\
+								magna sed lacus pellentesque hendrerit."
+							]
+						}
+					]
+				},
+				{
+					"tag": "lot",
+					"content": [
+						{
+							"tag": "item",
+							"@id": "t1",
+							"content": [
+								"Tabella 1"
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"tag": "part",
+			"@id": "p2",
+			"content": [
+				{
+					"tag": "toc",
+					"content": [
+						{
+							"tag": "item",
+							"@id": "p2_c1",
+							"content": [
+								"Capitolo 1"
+							]
+						},
+						{
+							"tag": "item",
+							"@id": "p2_c1_s1",
+							"content": [
+								"Sezione 1"
+							]
+						},
+						{
+							"tag": "item",
+							"@id": "p2_c1_s2",
+							"content": [
+								"Sezione 2"
+							]
+						},
+						{
+							"tag": "item",
+							"@id": "p2_c1_s21",
+							"content": [
+								"Sottosezione 2.1"
+							]
+						},
+						{
+							"tag": "item",
+							"@id": "p2_c1_s211",
+							"content": [
+								"Sottosezione 2.1.1"
+							]
+						},
+						{
+							"tag": "item",
+							"@id": "p2_c1_s212",
+							"content": [
+								"Sottosezione 2.1.2"
+							]
+						},
+						{
+							"tag": "item",
+							"@id": "p1_c1_s3",
+							"content": [
+								"Sezione 3"
+							]
+						},
+						{
+							"tag": "item",
+							"@id": "p2_c2",
+							"content": [
+								"Capitolo 2"
+							]
+						},
+						{
+							"tag": "item",
+							"@id": "p2_c2_s1",
+							"content": [
+								"Sezione 1"
+							]
+						},
+						{
+							"tag": "item",
+							"@id": "p2_c2_s11",
+							"content": [
+								"Sottosezione 1.1"
+							]
+						}
+					]
+				},
+				{
+					"tag": "chapter",
+					"@id": "p2_c1",
+					"@title": "Capitolo 1",
+					"content": [
+						{
+							"tag": "section",
+							"@id": "p2_c1_s1",
+							"@title": "Sezione 1",
+							"content": [
+								"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,\
+								sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam\
+								cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec\
+								erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis\
+								dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec\
+								lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.\
+								Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\
+								Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,\
+								et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus\
+								magna sed lacus pellentesque hendrerit."
+							]
+						},
+						{
+							"tag": "section",
+							"@id": "p2_c1_s2",
+							"@title": "Sezione 2",
+							"content": [
+								"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,\
+								sit amet condimentum turpis eleifend.",
+								{
+									"tag": "figure",
+									"@path": "figura_1.jpg",
+									"@caption": "Figura 1",
+									"@id": "f1",
+									"content": [
+
+									]
+								},
+								"Vivamus lobortis lacus eu mi placerat malesuada. Nullam\
+								cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec\
+								erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis\
+								dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec\
+								lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.\
+								Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\
+								Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,\
+								et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus\
+								magna sed lacus pellentesque hendrerit.",
+								{
+									"tag": "section",
+									"@id": "p2_c1_s21",
+									"@title": "Sottosezione 2.1",
+									"content": [
+										"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,\
+										sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam\
+										cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec\
+										erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis\
+										dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec\
+										lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.\
+										Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\
+										Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,\
+										et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus\
+										magna sed lacus pellentesque hendrerit.",
+										{
+											"tag": "section",
+											"@id": "p2_c1_s211",
+											"@title": "Sottosezione 2.1.1",
+											"content": [
+												"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,\
+												sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam\
+												cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec\
+												erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis\
+												dui nulla."
+											]
+										},
+										{
+											"tag": "section",
+											"@id": "p2_c1_s212",
+											"@title": "Sottosezione 2.1.2",
+											"content": [
+												"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,\
+												sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam\
+												cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec\
+												erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis\
+												dui nulla."
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"tag": "section",
+							"@id": "p2_c1_s3",
+							"@title": "Sezione 3",
+							"content": [
+								"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,\
+								sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam\
+								cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec\
+								erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis\
+								dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec\
+								lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.\
+								Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\
+								Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,\
+								et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus\
+								magna sed lacus pellentesque hendrerit."
+							]
+						}
+					]
+				},
+				{
+					"tag": "chapter",
+					"@id": "p2_c2",
+					"@title": "Capitolo 2",
+					"content": [
+						{
+							"tag": "section",
+							"@id": "p2_c2_s1",
+							"@title": "Sezione 1",
+							"content": [
+								"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,\
+								sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam\
+								cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec\
+								erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis\
+								dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec\
+								lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.\
+								Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\
+								Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,\
+								et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus\
+								magna sed lacus pellentesque hendrerit.",
+								{
+									"tag": "figure",
+									"@path": "figura_2.jpg",
+									"@caption": "Figura 2",
+									"@id": "f2",
+									"content": [
+
+									]
+								},
+								{
+									"tag": "section",
+									"@id": "p2_c2_s11",
+									"@title": "Sottoezione 1.1",
+									"content": [
+										"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,\
+										sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam\
+										cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec\
+										erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis\
+										dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec\
+										lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.\
+										Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.\
+										Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,\
+										et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus\
+										magna sed lacus pellentesque hendrerit."
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"tag": "lof",
+					"content": [
+						{
+							"tag": "item",
+							"@id": "f1",
+							"content": [
+								"Figura 1"
+							]
+						},
+						{
+							"tag": "item",
+							"@id": "f2",
+							"content": [
+								"Figura 2"
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"tag": "authornotes",
+			"content": [
+				{
+					"tag": "note",
+					"content": [
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,\
+						sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam\
+						cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec\
+						erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis\
+						dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum."
+					]
+				},
+				{
+					"tag": "note",
+					"content": [
+						"Sed sed laoreet justo, et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis\
+						 sollicitudin. Nulla cursus magna sed lacus pellentesque hendrerit."
+					]
+				}
+			]
+		}
+	]
+}
