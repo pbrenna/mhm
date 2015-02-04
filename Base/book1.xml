@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE book SYSTEM "book.dtd">
+<book>
+	<preface>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,
+		sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam
+		cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec
+		erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis
+		dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum.
+	</preface>
+	<part id="p1">
+		<toc>
+			<item id="p1_c1">Capitolo 1</item>
+			<item id="p1_c1_s1">Sezione 1</item>
+			<item id="p1_c1_s2">Sezione 2</item>
+			<item id="p1_c1_s21">Sottosezione 2.1</item>
+			<item id="p1_c1_s22">Sottosezione 2.2</item>
+			<item id="p1_c1_s221">Sottosezione 2.2.1</item>
+			<item id="p1_c1_s23">Sottosezione 2.3</item>
+			<item id="p1_c1_s3">Sezione 3</item>
+		</toc>
+		<chapter id="p1_c1" title="Capitolo 1">
+			<section id="p1_c1_s1" title="Sezione 1">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,
+				sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam
+				cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec
+				erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis
+				dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec
+				lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.
+				Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+				Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,
+				et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus
+				magna sed lacus pellentesque hendrerit.
+			</section>
+			<section id="p1_c1_s2" title="Sezione 2">
+				<section id="p1_c1_s21" title="Sottosezione 2.1">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,
+					sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam
+					cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec
+					erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis
+					dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec
+					lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.
+					Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+					Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,
+					et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus
+					magna sed lacus pellentesque hendrerit.
+				</section>
+				<section id="p1_c1_s22" title="Sottosezione 2.2">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,
+					sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam
+					cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec
+					erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis
+					dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec
+					lobortis a nulla et mattis.
+					<section id="p1_c1_s221" title="Sottosezione 2.2.1">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,
+						sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam
+						cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec
+						erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis
+						dui nulla.
+					</section>
+					Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.
+					Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+					Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,
+					et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus
+					magna sed lacus pellentesque hendrerit.
+				</section>
+				<section id="p1_c1_s23" title="Sottosezione 2.3">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,
+					sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam
+					cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec
+					erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis
+					dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec
+					lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.
+					Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+					Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,
+					et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus
+					magna sed lacus pellentesque hendrerit.
+				</section>
+			</section>
+			<section id="p1_c1_s3" title="Sezione 3">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,
+				sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam
+				cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec
+				erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis
+				dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec
+				lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.
+				Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+				Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,
+				et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus
+				magna sed lacus pellentesque hendrerit.
+			</section>
+		</chapter>
+	</part>
+	<part id="p2">
+		<toc>
+			<item id="p2_c1">Capitolo 1</item>
+			<item id="p2_c1_s1">Sezione 1</item>
+			<item id="p2_c1_s2">Sezione 2</item>
+			<item id="p2_c1_s21">Sottosezione 2.1</item>
+			<item id="p1_c1_s3">Sezione 3</item>
+			<item id="p2_c2">Capitolo 2</item>
+			<item id="p2_c2_s1">Sezione 1</item>
+		</toc>
+		<chapter id="p2_c1" title="Capitolo 1">
+			<section id="p2_c1_s1" title="Sezione 1">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,
+				sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam
+				cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec
+				erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis
+				dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec
+				lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.
+				Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+				Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,
+				et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus
+				magna sed lacus pellentesque hendrerit.
+			</section>
+			<section id="p2_c1_s2" title="Sezione 2">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,
+				sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam
+				cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec
+				erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis
+				dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec
+				lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.
+				Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+				Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,
+				et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus
+				magna sed lacus pellentesque hendrerit.
+				<section id="p2_c1_s21" title="Sottosezione 2.1">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,
+					sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam
+					cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec
+					erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis
+					dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec
+					lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.
+					Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+					Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,
+					et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus
+					magna sed lacus pellentesque hendrerit.
+				</section>
+			</section>
+			<section id="p2_c1_s3" title="Sezione 3">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,
+				sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam
+				cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec
+				erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis
+				dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec
+				lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.
+				Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+				Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,
+				et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus
+				magna sed lacus pellentesque hendrerit.
+			</section>
+		</chapter>
+		<chapter id="p2_c2" title="Capitolo 2">
+			<section id="p2_c2_s1" title="Sezione 1">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius turpis vel tellus aliquam,
+				sit amet condimentum turpis eleifend. Vivamus lobortis lacus eu mi placerat malesuada. Nullam
+				cursus, massa vitae adipiscing tempus, orci arcu imperdiet neque, ut adipiscing dolor tortor nec
+				erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In quis
+				dui nulla. Etiam fermentum lectus vel sapien facilisis rutrum. Suspendisse et felis lacus. Donec
+				lobortis a nulla et mattis. Phasellus scelerisque faucibus lectus, eget fermentum lectus interdum a.
+				Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+				Suspendisse tristique id quam ut cursus. Duis imperdiet consectetur dui. Sed sed laoreet justo,
+				et hendrerit dui. Suspendisse potenti. Integer vitae nibh vel justo lobortis sollicitudin. Nulla cursus
+				magna sed lacus pellentesque hendrerit.
+			</section>
+		</chapter>
+	</part>
+</book>
